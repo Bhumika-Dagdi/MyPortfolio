@@ -1,10 +1,26 @@
-import { useState } from 'react';
-import { useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { projects } from './projectData';
 
 const FAQ = [
   {
+    q: /vicharaai/i,
+    project: 'VicharaAI'
+  },
+  {
+    q: /python.?automation/i,
+    project: 'Python Automation'
+  },
+  {
+    q: /breast.?cancer.?prediction/i,
+    project: 'Breast Cancer Prediction'
+  },
+  {
+    q: /customer.?segmentation/i,
+    project: 'Customer Segmentation'
+  },
+  {
     q: /list.*project|show.*project|all.*project|project list|what.*project/i,
-    a: `Here are my main projects:\n- VicharaAI\n- Python Automation\n- Breast Cancer Prediction\n- Customer Segmentation\n\nYou can view my projects in the Projects section. Click "Show More" on any project for details!`
+    a: `Here are my main projects:\n- VicharaAI\n- Python Automation\n- Breast Cancer Prediction\n- Customer Segmentation\n\nYou can view my projects in the Projects section. Click \"Show More\" on any project for details!`
   },
   {
     q: /project|work|portfolio/i,
@@ -32,10 +48,30 @@ const FAQ = [
   }
 ];
 
+function getProjectDetails(projectName: string): string | null {
+  const project = projects.find(
+    p => p.title.toLowerCase() === projectName.toLowerCase()
+  );
+  if (!project) return null;
+  return (
+    `**${project.title}**\n` +
+    `${project.description}\n\n` +
+    `**Highlights:**\n- ${project.highlights.join('\n- ')}\n\n` +
+    `**Tech Stack:** ${project.techStack.join(', ')}\n` +
+    `[GitHub](${project.github})`
+  );
+}
+
 function getBotResponse(input: string): string {
   const intro = "I'm Bhumika, a B.Tech (CS & AI) student at SKIT Jaipur (2022-2026), passionate about AI, data, and building meaningful tech. Ask me about my projects, skills, or how to contact me!";
-  for (const { q, a } of FAQ) {
-    if (q.test(input)) return `${intro}\n\n${a}`;
+  for (const { q, a, project } of FAQ) {
+    if (q.test(input)) {
+      if (project) {
+        const details = getProjectDetails(project);
+        if (details) return `${intro}\n\n${details}`;
+      }
+      if (a) return `${intro}\n\n${a}`;
+    }
   }
   return `${intro}\n\nI'm here to help with anything about this website! Please ask something related to my portfolio, projects, skills, or contact.`;
 }

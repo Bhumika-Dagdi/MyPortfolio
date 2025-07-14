@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { Github, BookOpen, PieChart, BarChart3, Target, Heart } from 'lucide-react';
+import { Github, BookOpen, PieChart, Target, Heart } from 'lucide-react';
 
 export default function Projects() {
-  const [hoveredProject, setHoveredProject] = useState<number | null>(null);
   const [expandedProject, setExpandedProject] = useState<number | null>(null);
 
   const projects = [

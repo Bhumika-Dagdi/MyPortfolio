@@ -1,4 +1,4 @@
-import { Heart, Film, Music, BookOpen, Camera, Coffee } from 'lucide-react';
+import { Heart, Film, Music, BookOpen } from 'lucide-react';
 
 export default function Hobbies() {
   const hobbies = [

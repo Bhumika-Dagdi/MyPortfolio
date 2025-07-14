@@ -1,13 +1,6 @@
 import { useState } from 'react';
 import { useRef, useEffect } from 'react';
 
-const PROJECT_LIST = [
-  'VicharaAI',
-  'Python Automation',
-  'Breast Cancer Prediction',
-  'Customer Segmentation'
-];
-
 const FAQ = [
   {
     q: /list.*project|show.*project|all.*project|project list|what.*project/i,

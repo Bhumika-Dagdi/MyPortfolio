@@ -246,7 +246,7 @@ export default function Projects() {
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            {visibleCards.map((project, idx) => {
+            {visibleCards.map((project) => {
               if (project.isExtra) {
                 return (
                   <div key={project.id} className="group bg-[#FDF7F0] rounded-2xl p-6 shadow-lg border border-[#DDE6D5]/50 flex flex-col items-center justify-center h-full min-h-[350px] relative w-full max-w-md">

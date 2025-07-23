@@ -45,6 +45,10 @@ const FAQ = [
   {
     q: /hello|hi|hey|greet/i,
     a: 'Hello! How can I help you with this website?'
+  },
+  {
+    q: /resume|cv|curriculum vitae|download resume|cv link/i,
+    a: 'You can view or download my resume here: [Google Drive Resume](https://drive.google.com/file/d/1JIYx1QIiVBG9uFEBF0i25R-_78KilvvT/view?usp=sharing)'
   }
 ];
 

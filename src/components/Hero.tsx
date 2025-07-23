@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ChevronDown, Leaf, BookOpen, Heart } from 'lucide-react';
+import Lottie from 'lottie-react';
+import heartCodeAnimation from '../assets/heart-code.json';
 
 export default function Hero() {
   const [particles, setParticles] = useState<Array<{ id: number; x: number; y: number; delay: number }>>([]);
@@ -93,26 +95,34 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <button
-                onClick={() => scrollToSection('projects')}
-                className="flex items-center justify-center space-x-2 px-8 py-4 bg-[#587C56] text-white rounded-full hover:bg-[#587C56]/90 transition-all duration-300 hover:scale-105 hover:shadow-lg group"
-              >
-                <BookOpen size={20} />
-                <span className="font-medium">View My Work</span>
-                <div className="ml-2 group-hover:animate-pulse">📚</div>
-              </button>
-              
-              <button
-                onClick={() => scrollToSection('about')}
-                className="flex items-center justify-center space-x-2 px-8 py-4 bg-[#FFE6D4] text-[#A58A7F] rounded-full hover:bg-[#FFE6D4]/80 transition-all duration-300 hover:scale-105 hover:shadow-lg group"
-              >
-                <Heart size={20} />
-                <span className="font-medium">Know Me More</span>
-                <div className="ml-2 group-hover:animate-pulse">🌸</div>
-              </button>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+                <button
+                  onClick={() => scrollToSection('projects')}
+                  className="flex items-center justify-center space-x-2 px-5 py-2 bg-[#587C56] text-white rounded-full hover:bg-[#587C56]/90 transition-all duration-300 hover:scale-105 hover:shadow-lg group text-base font-medium whitespace-nowrap"
+                >
+                  <BookOpen size={18} />
+                  <span>View My Work</span>
+                  <div className="ml-2 group-hover:animate-pulse">📚</div>
+                </button>
+                <button
+                  onClick={() => scrollToSection('about')}
+                  className="flex items-center justify-center space-x-2 px-5 py-2 bg-[#FFE6D4] text-[#A58A7F] rounded-full hover:bg-[#FFE6D4]/80 transition-all duration-300 hover:scale-105 hover:shadow-lg group text-base font-medium whitespace-nowrap"
+                >
+                  <Heart size={18} />
+                  <span>Know Me More</span>
+                  <div className="ml-2 group-hover:animate-pulse">🌸</div>
+                </button>
+                <a
+                  href="https://drive.google.com/file/d/1JIYx1QIiVBG9uFEBF0i25R-_78KilvvT/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center space-x-2 px-5 py-2 bg-[#A58A7F] text-white rounded-full hover:bg-[#A58A7F]/90 transition-all duration-300 hover:scale-105 hover:shadow-lg group text-base font-medium whitespace-nowrap"
+                >
+                  <span>Resume</span>
+                  <span className="ml-2">📄</span>
+                </a>
+              </div>
             </div>
-          </div>
 
           {/* Right: Animated Scene */}
           <div className="relative">
@@ -144,6 +154,14 @@ export default function Hero() {
                   </div>
                 </div>
 
+                {/* Lottie Animation: Heart Code */}
+                <div className="flex justify-center mb-4">
+                  <Lottie 
+                    animationData={heartCodeAnimation} 
+                    loop 
+                    style={{ width: 220, height: 220 }}
+                  />
+                </div>
                 {/* Animated Books */}
                 <div className="flex justify-center space-x-4">
                   {[...Array(3)].map((_, i) => (

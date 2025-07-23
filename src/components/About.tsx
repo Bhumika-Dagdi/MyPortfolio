@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { BookOpen, Heart, Lightbulb } from 'lucide-react';
+import profileImg from '../assets/profile.jpg';
 
 export default function About() {
   const [currentLine, setCurrentLine] = useState(0);
@@ -31,8 +32,14 @@ export default function About() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Left: Animated Desk Scene */}
-          <div className="relative">
+          {/* Left: Profile Image and Animated Desk Scene */}
+          <div className="relative flex flex-col items-center">
+            {/* Profile Image */}
+            <img
+              src={profileImg}
+              alt="Profile"
+              className="w-64 h-64 object-cover rounded-full shadow-lg border-4 border-[#DDE6D5] mb-6"
+            />
             <div className="bg-[#DDE6D5]/60 rounded-3xl p-8 backdrop-blur-sm border border-[#587C56]/20">
               {/* Desk Surface */}
               <div className="bg-[#A58A7F]/20 rounded-2xl p-6 relative">

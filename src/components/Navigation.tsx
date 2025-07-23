@@ -61,6 +61,15 @@ export default function Navigation() {
               );
             })}
           </div>
+          {/* Resume Button */}
+          <a
+            href="https://drive.google.com/file/d/1JIYx1QIiVBG9uFEBF0i25R-_78KilvvT/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-8 px-5 py-2 bg-[#A58A7F] text-white rounded-full font-medium shadow hover:bg-[#587C56] transition-all duration-300 hidden md:inline-block"
+          >
+            Resume
+          </a>
         </div>
       </div>
     </nav>
